@@ -1,0 +1,25 @@
+﻿------- App Config data encryption
+https://stackoverflow.com/questions/11637348/encrypt-connection-string-in-app-config
+
+
+
+Rem Rename app.config to web.config
+ren C:\Users\Prasad\source\repos\SQLDB2GIT\SQLDB2GIT\DB2GIT\App.config Web.config
+
+Rem To Encrypt, Open command prompt (Admin) and type:
+%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_regiis -pef "connectionStrings"  C:\Users\Prasad\source\repos\SQLDB2GIT\SQLDB2GIT\DB2GIT
+%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_regiis -pef "appSettings"  C:\Users\Prasad\source\repos\SQLDB2GIT\SQLDB2GIT\DB2GIT
+
+Rem rename web.config back to app.config
+ren C:\Users\Prasad\source\repos\SQLDB2GIT\SQLDB2GIT\DB2GIT\Web.config App.config
+
+
+Rem Rename app.config to web.config
+ren C:\Users\Prasad\source\repos\SQLDB2GIT\SQLDB2GIT\DB2GIT\App.config Web.config
+
+Rem To Decrypt, use 
+%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_regiis -pdf "connectionStrings"  C:\Users\Prasad\source\repos\SQLDB2GIT\SQLDB2GIT\DB2GIT
+%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_regiis -pdf "appSettings"  C:\Users\Prasad\source\repos\SQLDB2GIT\SQLDB2GIT\DB2GIT
+
+Rem rename web.config back to app.config
+ren C:\Users\Prasad\source\repos\SQLDB2GIT\SQLDB2GIT\DB2GIT\Web.config App.config

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBChangesAuditModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DBObjChanges">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DBObjChangeDate" Type="datetime" Nullable="false" />
+          <Property Name="DBObjChangeType" Type="nvarchar" MaxLength="100" />
+          <Property Name="DBObjChange" Type="nvarchar(max)" />
+          <Property Name="DBObjChangeXML" Type="xml" />
+          <Property Name="DBObjType" Type="nvarchar" MaxLength="100" />
+          <Property Name="DatabaseName" Type="nvarchar" MaxLength="100" />
+          <Property Name="SchemaName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ObjectName" Type="nvarchar" MaxLength="100" />
+          <Property Name="HostName" Type="varchar" MaxLength="100" />
+          <Property Name="Program" Type="nvarchar" MaxLength="100" />
+          <Property Name="LoginUser" Type="nvarchar" MaxLength="100" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="100" />
+          <Property Name="ChangeComment" Type="nvarchar(max)" />
+          <Property Name="BatchID" Type="uniqueidentifier" />
+          <Property Name="WritingToGIT" Type="datetime" />
+          <Property Name="GitLink" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="DBChangesAuditModelStoreContainer">
+          <EntitySet Name="DBObjChanges" EntityType="Self.DBObjChanges" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBChangesAuditModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DBObjChanges">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DBObjChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DBObjChangeType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DBObjChange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DBObjChangeXML" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DBObjType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DatabaseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SchemaName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ObjectName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HostName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Program" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LoginUser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IPAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ChangeComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BatchID" Type="Guid" />
+          <Property Name="WritingToGIT" Type="DateTime" Precision="3" />
+          <Property Name="GitLink" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DBChangesAuditEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DBObjChanges" EntityType="DBChangesAuditModel.DBObjChanges" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBChangesAuditModelStoreContainer" CdmEntityContainer="DBChangesAuditEntities">
+          <EntitySetMapping Name="DBObjChanges">
+            <EntityTypeMapping TypeName="DBChangesAuditModel.DBObjChanges">
+              <MappingFragment StoreEntitySet="DBObjChanges">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DBObjChangeDate" ColumnName="DBObjChangeDate" />
+                <ScalarProperty Name="DBObjChangeType" ColumnName="DBObjChangeType" />
+                <ScalarProperty Name="DBObjChange" ColumnName="DBObjChange" />
+                <ScalarProperty Name="DBObjChangeXML" ColumnName="DBObjChangeXML" />
+                <ScalarProperty Name="DBObjType" ColumnName="DBObjType" />
+                <ScalarProperty Name="DatabaseName" ColumnName="DatabaseName" />
+                <ScalarProperty Name="SchemaName" ColumnName="SchemaName" />
+                <ScalarProperty Name="ObjectName" ColumnName="ObjectName" />
+                <ScalarProperty Name="HostName" ColumnName="HostName" />
+                <ScalarProperty Name="Program" ColumnName="Program" />
+                <ScalarProperty Name="LoginUser" ColumnName="LoginUser" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="ChangeComment" ColumnName="ChangeComment" />
+                <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+                <ScalarProperty Name="WritingToGIT" ColumnName="WritingToGIT" />
+                <ScalarProperty Name="GitLink" ColumnName="GitLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

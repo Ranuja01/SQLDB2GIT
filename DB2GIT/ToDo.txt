@@ -1,0 +1,51 @@
+﻿
+* Get back the GIT #s etc -- Done
+* Update table when updated , so that it won't be considered to go to GIT again -- Done
+* Remove unwanted code and keep only what is necessary 
+* Handle Exceptions
+* Get the Code change summary (if possible) -- impossible
+* Remove dbo if no other scheme (otherwise it will be there in the GIT as /dbo - ugly) - not a must
+* 
+
+* SQL Project ... to keep the sql files and open in Visual Studio and check history etc in GIT
+* put this prj to GIT
+* Have a windows / web interface, so that the admin operations as setting up etc can be done
+* 
+
+
+
+
+------- App Config data encryption
+https://stackoverflow.com/questions/11637348/encrypt-connection-string-in-app-config
+
+        //https://medium.com/poka-techblog/the-best-way-to-store-secrets-in-your-app-is-not-to-store-secrets-in-your-app-308a6807d3ed
+        //https://stackoverflow.com/questions/2397822/what-is-the-best-practice-for-dealing-with-passwords-in-git-repositories
+        // https://stackoverflow.com/questions/6565357/git-push-requires-username-and-password
+        // https://weblogs.asp.net/jongalloway/encrypting-passwords-in-a-net-app-config-file 
+
+
+Rename app.config to web.config
+Open command prompt (Admin) and type:
+%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_regiis -pef "connectionStrings"  C:\Users\Prasad\source\repos\SQLDB2GIT\SQLDB2GIT\DB2GIT
+rename web.config back to app.config
+
+To Decrypt use 
+%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_regiis -pdf "connectionStrings"  C:\Users\Prasad\source\repos\SQLDB2GIT\SQLDB2GIT\DB2GIT
+rename web.config back to app.config
+
+%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_regiis -pef "appSettings"  C:\Users\Prasad\source\repos\SQLDB2GIT\SQLDB2GIT\DB2GIT
+rename web.config back to app.config
+
+%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_regiis -pdf "appSettings"  C:\Users\Prasad\source\repos\SQLDB2GIT\SQLDB2GIT\DB2GIT
+rename web.config back to app.config
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+    </startup>
+  <appSettings>
+    <add key="RepoFolder" value="C:\Users\Prasad\source\repos\SQLDB2GIT\SQLDB2GIT\DB2GIT\SQLDBObjs\SQLDBObjs" />
+  </appSettings>
+<connectionStrings><add name="DBChangesAuditEntities" connectionString="metadata=res://*/EFAuditDB.csdl|res://*/EFAuditDB.ssdl|res://*/EFAuditDB.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=SRINIKA\SQLEXPRESS;initial catalog=DBChangesAudit;persist security info=True;user id=AuditBuwa;password=tEmpp$Swd;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" /></connectionStrings></configuration>
